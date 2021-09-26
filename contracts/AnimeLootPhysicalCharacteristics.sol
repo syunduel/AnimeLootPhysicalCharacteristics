@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract AnimeLootPhysicalCharacteristics {
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract AnimeLootPhysicalCharacteristics is Ownable {
 
 }
