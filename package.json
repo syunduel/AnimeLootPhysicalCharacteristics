@@ -21,5 +21,8 @@
   "homepage": "https://github.com/syunduel/AnimeLootPhysicalCharacteristics#readme",
   "dependencies": {
     "@openzeppelin/contracts": "^4.3.2"
+  },
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "^1.5.0"
   }
 }

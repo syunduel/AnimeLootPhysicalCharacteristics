@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./Base64.sol";
 
-contract AnimeLootPhysicalCharacteristics is ERC721Enumerable, ReentrancyGuard, Ownable {
+contract AnimeLoot is ERC721Enumerable, ReentrancyGuard, Ownable {
 
         string[] private species = [
         "Human",
@@ -153,6 +153,6 @@ contract AnimeLootPhysicalCharacteristics is ERC721Enumerable, ReentrancyGuard, 
         return string(buffer);
     }
     
-    constructor() ERC721("AnimeLootPhysicalCharacteristics", "AnimeLootPhysicalCharacteristics") Ownable() {}
+    constructor() ERC721("AnimeLoot", "AnimeLoot") Ownable() {}
 
 }

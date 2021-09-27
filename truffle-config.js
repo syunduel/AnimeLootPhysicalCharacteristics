@@ -23,6 +23,14 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
+// const HDWalletProvider = require('@truffle/hdwallet-provider');
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+//
+// const fs = require('fs');
+// const mnemonic = fs.readFileSync(".secret").toString().trim();
+const mnemonic = process.env["MNEMONIC"];
+const rinkeby_infura_project_id = process.env["INFURA_PROJECT_ID"];
+
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -48,13 +56,24 @@ module.exports = {
     },
 
     rinkeby: {
-      provider: function() { 
+      provider: function() {
+        const networkCheckTimeout = 10000;
+        const rinkeby_infura_url = "wss://rinkeby.infura.io/ws/v3/" + rinkeby_infura_project_id;
+
         return new HDWalletProvider(mnemonic, rinkeby_infura_url);
       },
       network_id: 4,
-      gas: 4500000,
-      gasPrice: 10000000000,
- 
+      networkCheckTimeout: 1000000,
+      timeoutBlocks: 200
+
+      // gas: 5000000,
+      // gasPrice: 45000000000,
+      // confirmations: 2,
+      // timeoutBlocks: 200,
+      // skipDryRun: false,
+      // websocket: true,
+      // timeoutBlocks: 50000,
+      // networkCheckTimeout: 1000000 
     },
 
     // Another network with more advanced options...
