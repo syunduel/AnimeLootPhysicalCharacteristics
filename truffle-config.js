@@ -63,8 +63,21 @@ module.exports = {
         return new HDWalletProvider(mnemonic, rinkeby_infura_url);
       },
       network_id: 4,
-      networkCheckTimeout: 1000000,
-      timeoutBlocks: 200
+
+      // networkCheckTimeout: 1000000,
+      // timeoutBlocks: 200
+
+      gas: 8500000,
+      gasPrice: 1000000000,  // 1 gwei (in wei) (default: 100 gwei)
+
+      // gas: 5000000,
+      // gasPrice: 45000000000,
+      confirmations: 2,
+      skipDryRun: true,
+      websocket: true,
+      timeoutBlocks: 50000,
+      networkCheckTimeout: 1000000000,
+      // networkCheckTimeout: 1000000
 
       // gas: 5000000,
       // gasPrice: 45000000000,
