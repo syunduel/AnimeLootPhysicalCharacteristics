@@ -1,5 +1,5 @@
 {
-  "contractName": "AnimeLootPhysicalCharacteristics",
+  "contractName": "AnimeLootPhysicalCharacteristics2",
   "abi": [
     {
       "inputs": [],
@@ -7,20 +7,20 @@
       "type": "constructor"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.8+commit.dddeac2f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/AnimeLootPhysicalCharacteristics.sol\":\"AnimeLootPhysicalCharacteristics\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/AnimeLootPhysicalCharacteristics.sol\":{\"keccak256\":\"0x145e6fe7e2397d5b946ec21445f253f0e8e43a5f904d3ce3a740302ebb980c35\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ae4d3edfb47ea096166ab7b3c49c2f0612e706e2258d5db426ab7940234f974d\",\"dweb:/ipfs/QmQLQfpbWen7oC6VWxwTEbGP5GuTvtwvRYk3YzuKkopNPc\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220eff1bacabb88bdd9a7f0d59e4e45040e964d088b354822be39bd4bc30ce5222464736f6c63430008080033",
-  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220eff1bacabb88bdd9a7f0d59e4e45040e964d088b354822be39bd4bc30ce5222464736f6c63430008080033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.8+commit.dddeac2f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/AnimeLootPhysicalCharacteristics.sol\":\"AnimeLootPhysicalCharacteristics2\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/AnimeLootPhysicalCharacteristics.sol\":{\"keccak256\":\"0xbf52e75c9ebb04f6acc5c870128ed1be6f68d4348479289b3b02fbbd11656ae4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://71a629b0bd505954128bb6536068b42677cc1321dcbebdb7ac0da25c6dbb0df3\",\"dweb:/ipfs/QmbfbQ3qLYVamoDebJxiYHdv6VDj4ATeT1cDTFng3w9sza\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220cadfb3a7bc81b7524ebdd84be433f7b40ff0e39ab538c4f3789ee7d0b3cbd61264736f6c63430008080033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220cadfb3a7bc81b7524ebdd84be433f7b40ff0e39ab538c4f3789ee7d0b3cbd61264736f6c63430008080033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "60:76:0:-:0;;;115:16;;;;;;;;;;60:76;;;;;;",
-  "deployedSourceMap": "60:76:0:-:0;;;;;",
-  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract AnimeLootPhysicalCharacteristics {\r\n    \r\n    constructor() {}\r\n\r\n}\r\n",
+  "sourceMap": "60:77:0:-:0;;;116:16;;;;;;;;;;60:77;;;;;;",
+  "deployedSourceMap": "60:77:0:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract AnimeLootPhysicalCharacteristics2 {\r\n    \r\n    constructor() {}\r\n\r\n}\r\n",
   "sourcePath": "C:\\Users\\syund\\eclipse-workspace\\AnimeLootPhysicalCharacteristics\\contracts\\AnimeLootPhysicalCharacteristics.sol",
   "ast": {
     "absolutePath": "project:/contracts/AnimeLootPhysicalCharacteristics.sol",
     "exportedSymbols": {
-      "AnimeLootPhysicalCharacteristics": [
+      "AnimeLootPhysicalCharacteristics2": [
         6
       ]
     },
@@ -49,15 +49,15 @@
         "linearizedBaseContracts": [
           6
         ],
-        "name": "AnimeLootPhysicalCharacteristics",
-        "nameLocation": "69:32:0",
+        "name": "AnimeLootPhysicalCharacteristics2",
+        "nameLocation": "69:33:0",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
               "id": 4,
               "nodeType": "Block",
-              "src": "129:2:0",
+              "src": "130:2:0",
               "statements": []
             },
             "id": 5,
@@ -71,32 +71,32 @@
               "id": 2,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "126:2:0"
+              "src": "127:2:0"
             },
             "returnParameters": {
               "id": 3,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "129:0:0"
+              "src": "130:0:0"
             },
             "scope": 6,
-            "src": "115:16:0",
+            "src": "116:16:0",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
         "scope": 7,
-        "src": "60:76:0",
+        "src": "60:77:0",
         "usedErrors": []
       }
     ],
-    "src": "33:105:0"
+    "src": "33:106:0"
   },
   "legacyAST": {
     "absolutePath": "project:/contracts/AnimeLootPhysicalCharacteristics.sol",
     "exportedSymbols": {
-      "AnimeLootPhysicalCharacteristics": [
+      "AnimeLootPhysicalCharacteristics2": [
         6
       ]
     },
@@ -125,15 +125,15 @@
         "linearizedBaseContracts": [
           6
         ],
-        "name": "AnimeLootPhysicalCharacteristics",
-        "nameLocation": "69:32:0",
+        "name": "AnimeLootPhysicalCharacteristics2",
+        "nameLocation": "69:33:0",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
               "id": 4,
               "nodeType": "Block",
-              "src": "129:2:0",
+              "src": "130:2:0",
               "statements": []
             },
             "id": 5,
@@ -147,27 +147,27 @@
               "id": 2,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "126:2:0"
+              "src": "127:2:0"
             },
             "returnParameters": {
               "id": 3,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "129:0:0"
+              "src": "130:0:0"
             },
             "scope": 6,
-            "src": "115:16:0",
+            "src": "116:16:0",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
         "scope": 7,
-        "src": "60:76:0",
+        "src": "60:77:0",
         "usedErrors": []
       }
     ],
-    "src": "33:105:0"
+    "src": "33:106:0"
   },
   "compiler": {
     "name": "solc",
@@ -175,7 +175,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-09-29T06:23:21.525Z",
+  "updatedAt": "2021-09-29T06:33:14.246Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

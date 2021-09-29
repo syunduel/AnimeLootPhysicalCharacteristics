@@ -1,4 +1,4 @@
-const ALPCContract = artifacts.require("AnimeLootPhysicalCharacteristics");
+const ALPCContract = artifacts.require("AnimeLootPhysicalCharacteristics2");
 
 contract("ALPC", (accounts) => {
     if("has been deployed successfully", async () => {

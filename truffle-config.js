@@ -23,7 +23,8 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 //
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
-const mnemonic = process.env["MNEMONIC"];
+const mnemonic_ganache = process.env["MNEMONIC_GANACHE"];
+const mnemonic_rinkeby = process.env["MNEMONIC_RINKEBY"];
 
 const project_id = process.env["ALPC_INFURA_PROJECT_ID"];
 const rinkeby_infura_url = "https://rinkeby.infura.io/v3/" + project_id;
@@ -73,10 +74,10 @@ module.exports = {
 
     rinkeby: {
       provider: function() { 
-        return new HDWalletProvider(mnemonic, rinkeby_infura_url);
+        return new HDWalletProvider(mnemonic_rinkeby, rinkeby_infura_url);
       },
       network_id: 4,
-      gas: 8000000,
+      gas: 8500000,
       gasPrice: 10000000000,
     },
 
