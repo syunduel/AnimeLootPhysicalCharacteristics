@@ -8,7 +8,7 @@ import "./Base64.sol";
 
 contract AnimeLootPhysicalCharacteristics is ERC721Enumerable, ReentrancyGuard, Ownable {
 
-        string[] private species = [
+    string[] private species = [
         "Human",
         "Therianthrope",
         "Elf",

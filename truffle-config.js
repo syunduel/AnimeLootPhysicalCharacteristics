@@ -19,17 +19,15 @@
  */
 
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
-//
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
-
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 //
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 const mnemonic = process.env["MNEMONIC"];
-const rinkeby_infura_project_id = process.env["INFURA_PROJECT_ID"];
+
+const project_id = process.env["ALPC_INFURA_PROJECT_ID"];
+const rinkeby_infura_url = "https://rinkeby.infura.io/v3/" + project_id;
+const etherscan_api_key = process.env["ETHERSCAN_API_KEY"];
 
 module.exports = {
   /**
@@ -41,6 +39,16 @@ module.exports = {
    *
    * $ truffle test --network <network-name>
    */
+
+  contracts_build_directory: "./client/src/contracts",
+
+  api_keys: {
+    etherscan: etherscan_api_key
+  },
+
+  plugins: [
+    'truffle-plugin-verify'
+  ],
 
   networks: {
     // Useful for testing. The `development` name is special - truffle uses it by default
@@ -62,40 +70,16 @@ module.exports = {
       from: "0x4eF9663aFfb340585A3dF42F253aC65765EbFDb0",
       gas: 470000
     },
- 
-    rinkeby: {
-      provider: function() {
-        const networkCheckTimeout = 10000;
-        const rinkeby_infura_url = "wss://rinkeby.infura.io/ws/v3/" + rinkeby_infura_project_id;
 
+    rinkeby: {
+      provider: function() { 
         return new HDWalletProvider(mnemonic, rinkeby_infura_url);
       },
       network_id: 4,
-
-      // networkCheckTimeout: 1000000,
-      // timeoutBlocks: 200
-
-      gas: 20000000,
-      gasPrice: 9000000000,  // 1 gwei (in wei) (default: 100 gwei)
-
-      // gas: 5000000,
-      // gasPrice: 45000000000,
-      confirmations: 2,
-      skipDryRun: true,
-      websocket: true,
-      timeoutBlocks: 50000,
-      networkCheckTimeout: 1000000000,
-      // networkCheckTimeout: 1000000
-
-      // gas: 5000000,
-      // gasPrice: 45000000000,
-      // confirmations: 2,
-      // timeoutBlocks: 200,
-      // skipDryRun: false,
-      // websocket: true,
-      // timeoutBlocks: 50000,
-      // networkCheckTimeout: 1000000 
+      gas: 8000000,
+      gasPrice: 10000000000,
     },
+
 
     // Another network with more advanced options...
     // advanced: {
