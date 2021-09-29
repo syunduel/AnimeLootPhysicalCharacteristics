@@ -55,6 +55,14 @@ module.exports = {
      network_id: "*",       // Any network (default: none)
     },
 
+    geth: {
+      host: "127.0.0.1",     // Localhost (default: none)
+      port: 8545,            // Standard Ethereum port (default: none)
+      network_id: "*",       // Any network (default: none)
+      from: "0x4eF9663aFfb340585A3dF42F253aC65765EbFDb0",
+      gas: 470000
+    },
+ 
     rinkeby: {
       provider: function() {
         const networkCheckTimeout = 10000;
@@ -67,8 +75,8 @@ module.exports = {
       // networkCheckTimeout: 1000000,
       // timeoutBlocks: 200
 
-      gas: 8500000,
-      gasPrice: 1000000000,  // 1 gwei (in wei) (default: 100 gwei)
+      gas: 20000000,
+      gasPrice: 9000000000,  // 1 gwei (in wei) (default: 100 gwei)
 
       // gas: 5000000,
       // gasPrice: 45000000000,
