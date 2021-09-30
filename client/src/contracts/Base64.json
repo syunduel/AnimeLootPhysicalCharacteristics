@@ -1,13 +1,13 @@
 {
   "contractName": "Base64",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.8+commit.dddeac2f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"author\":\"Brecht Devos <brecht@loopring.org>\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Base64\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"[MIT License]Provides a function for encoding some bytes in base64\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Base64.sol\":\"Base64\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Base64.sol\":{\"keccak256\":\"0xcb6b5a45a39105c93d800e07cf6524238b74966783d47c3f01ecba28be413694\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e75640df71f1ba0a0d55230dfd1093bad60cccb38b958e34d230f1c8ff428c9e\",\"dweb:/ipfs/QmY2AVB1uQmvyTaNYtymMu6yNHZ31w4PHXtNVt4NKGCDYm\"]}},\"version\":1}",
-  "bytecode": "0x60566050600b82828239805160001a6073146043577f4e487b7100000000000000000000000000000000000000000000000000000000600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212200ffb3d08d3aabbc2043ad5cac0332fbb09fd96d678f74eeb7f4b20b24cb6ea8c64736f6c63430008080033",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212200ffb3d08d3aabbc2043ad5cac0332fbb09fd96d678f74eeb7f4b20b24cb6ea8c64736f6c63430008080033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"author\":\"Brecht Devos <brecht@loopring.org>\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Base64\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"[MIT License]Provides a function for encoding some bytes in base64\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Base64.sol\":\"Base64\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Base64.sol\":{\"keccak256\":\"0xcb6b5a45a39105c93d800e07cf6524238b74966783d47c3f01ecba28be413694\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e75640df71f1ba0a0d55230dfd1093bad60cccb38b958e34d230f1c8ff428c9e\",\"dweb:/ipfs/QmY2AVB1uQmvyTaNYtymMu6yNHZ31w4PHXtNVt4NKGCDYm\"]}},\"version\":1}",
+  "bytecode": "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122045c037635d2d46c21584e20b1247936b6540f94a8c7bd32fe64c3e7cc38b562964736f6c63430008070033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122045c037635d2d46c21584e20b1247936b6540f94a8c7bd32fe64c3e7cc38b562964736f6c63430008070033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "213:1804:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "sourceMap": "213:1804:1:-:0;;;;;;;;;;;;;;;-1:-1:-1;;;213:1804:1;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "213:1804:1:-:0;;;;;;;;",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\n/// [MIT License]\r\n/// @title Base64\r\n/// @notice Provides a function for encoding some bytes in base64\r\n/// @author Brecht Devos <brecht@loopring.org>\r\nlibrary Base64 {\r\n    bytes internal constant TABLE = \"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\";\r\n\r\n    /// @notice Encodes some bytes to the base64 representation\r\n    function encode(bytes memory data) internal pure returns (string memory) {\r\n        uint256 len = data.length;\r\n        if (len == 0) return \"\";\r\n\r\n        // multiply by 4/3 rounded up\r\n        uint256 encodedLen = 4 * ((len + 2) / 3);\r\n\r\n        // Add some extra buffer at the end\r\n        bytes memory result = new bytes(encodedLen + 32);\r\n\r\n        bytes memory table = TABLE;\r\n\r\n        assembly {\r\n            let tablePtr := add(table, 1)\r\n            let resultPtr := add(result, 32)\r\n\r\n            for {\r\n                let i := 0\r\n            } lt(i, len) {\r\n\r\n            } {\r\n                i := add(i, 3)\r\n                let input := and(mload(add(data, i)), 0xffffff)\r\n\r\n                let out := mload(add(tablePtr, and(shr(18, input), 0x3F)))\r\n                out := shl(8, out)\r\n                out := add(out, and(mload(add(tablePtr, and(shr(12, input), 0x3F))), 0xFF))\r\n                out := shl(8, out)\r\n                out := add(out, and(mload(add(tablePtr, and(shr(6, input), 0x3F))), 0xFF))\r\n                out := shl(8, out)\r\n                out := add(out, and(mload(add(tablePtr, and(input, 0x3F))), 0xFF))\r\n                out := shl(224, out)\r\n\r\n                mstore(resultPtr, out)\r\n\r\n                resultPtr := add(resultPtr, 4)\r\n            }\r\n\r\n            switch mod(len, 3)\r\n            case 1 {\r\n                mstore(sub(resultPtr, 2), shl(240, 0x3d3d))\r\n            }\r\n            case 2 {\r\n                mstore(sub(resultPtr, 1), shl(248, 0x3d))\r\n            }\r\n\r\n            mstore(result, encodedLen)\r\n        }\r\n\r\n        return string(result);\r\n    }\r\n}\r\n",
   "sourcePath": "C:\\Users\\syund\\eclipse-workspace\\AnimeLootPhysicalCharacteristics\\contracts\\Base64.sol",
@@ -3709,11 +3709,19 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.8.8+commit.dddeac2f.Emscripten.clang"
+    "version": "0.8.7+commit.e28d00a7.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "4": {
+      "events": {},
+      "links": {},
+      "address": "0xccF8268Ea0631c9a4Ca8cF02c613176Ff67A3f35",
+      "transactionHash": "0xc82eedd111f3769264f9f1a493a85e98c0a17d685edcdab6d05c35fb367afda6"
+    }
+  },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-09-29T06:33:14.248Z",
+  "updatedAt": "2021-09-30T14:28:08.495Z",
+  "networkType": "ethereum",
   "devdoc": {
     "author": "Brecht Devos <brecht@loopring.org>",
     "kind": "dev",

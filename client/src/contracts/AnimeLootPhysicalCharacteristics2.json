@@ -7,9 +7,9 @@
       "type": "constructor"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.8+commit.dddeac2f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/AnimeLootPhysicalCharacteristics.sol\":\"AnimeLootPhysicalCharacteristics2\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/AnimeLootPhysicalCharacteristics.sol\":{\"keccak256\":\"0xbf52e75c9ebb04f6acc5c870128ed1be6f68d4348479289b3b02fbbd11656ae4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://71a629b0bd505954128bb6536068b42677cc1321dcbebdb7ac0da25c6dbb0df3\",\"dweb:/ipfs/QmbfbQ3qLYVamoDebJxiYHdv6VDj4ATeT1cDTFng3w9sza\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220cadfb3a7bc81b7524ebdd84be433f7b40ff0e39ab538c4f3789ee7d0b3cbd61264736f6c63430008080033",
-  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220cadfb3a7bc81b7524ebdd84be433f7b40ff0e39ab538c4f3789ee7d0b3cbd61264736f6c63430008080033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/AnimeLootPhysicalCharacteristics.sol\":\"AnimeLootPhysicalCharacteristics2\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/AnimeLootPhysicalCharacteristics.sol\":{\"keccak256\":\"0xbf52e75c9ebb04f6acc5c870128ed1be6f68d4348479289b3b02fbbd11656ae4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://71a629b0bd505954128bb6536068b42677cc1321dcbebdb7ac0da25c6dbb0df3\",\"dweb:/ipfs/QmbfbQ3qLYVamoDebJxiYHdv6VDj4ATeT1cDTFng3w9sza\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122095220bebfb21e1ee3567a1216ec54f3e7ba25e6eb3db20974aa82a8149a0c2ff64736f6c63430008070033",
+  "deployedBytecode": "0x6080604052600080fdfea264697066735822122095220bebfb21e1ee3567a1216ec54f3e7ba25e6eb3db20974aa82a8149a0c2ff64736f6c63430008070033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
@@ -171,11 +171,19 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.8.8+commit.dddeac2f.Emscripten.clang"
+    "version": "0.8.7+commit.e28d00a7.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "4": {
+      "events": {},
+      "links": {},
+      "address": "0xBf6842E665F652395bB2B38384c9887f9B5e8b23",
+      "transactionHash": "0x999a1b56efe9831cb770b2876da8878daa91dd3c4616645fe23f557b3a6362c2"
+    }
+  },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-09-29T06:33:14.246Z",
+  "updatedAt": "2021-09-30T14:28:37.646Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},
