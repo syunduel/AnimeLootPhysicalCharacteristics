@@ -8,70 +8,68 @@ import "./Base64.sol";
 
 contract AnimeLootPhysicalCharacteristics is ERC721Enumerable, ReentrancyGuard, Ownable {
 
-    string[] private species = [
-        "Human",
-        "Therianthrope",
-        "Elf",
-        "Dwarf",
-        "Vampire",
-        "Merfolk",
-        "Dragonewt",
-        "Angel",
-        "Demon",
-        "Monster",
-        "Unknown"
+    string[] private height = [
+        "Tall",
+        "Medium",
+        "Short"
     ];
     
-    string[] private sex = [
-        "Female",
-        "Male",
-        "Hermaphrodite",
-        "Unknown"
+    string[] private bodyShape = [
+        "Strong",
+        "Plump",
+        "Normal",
+        "Slender"
     ];
     
-    string[] private heritage = [
-        "High Class",
-        "Middle Class",
-        "Low Class",
-        "Unknown"
+    string[] private skinColor = [
+        "DarkSkin",
+        "Brown",
+        "Olive",
+        "FairSkin",
+        "Others"
     ];
     
-    string[] private personality = [
-       "Serious",
-       "Frivolous",
-       "Passionate",
-       "Cool",
-       "Confident",
-       "Diffident",
-       "Optimistic",
-       "Pessimistic",
-       "Rough",
-       "Gentle",
-       "Unknown" 
+    string[] private strengthOfCharacteristics = [
+       "Pure blood",
+       "Half",
+       "Quarter"
     ];
+
+    string[] private kindOfTherianthrope = [
+        "Mammalian",
+        "Reptiles",
+        "Birds",
+        "Amphibians",
+        "Primates",
+        "Centaur",
+        "Lamia",
+        "Harpy",
+        "Others"
+    ];
+
     
     function random(string memory input) internal pure returns (uint256) {
         return uint256(keccak256(abi.encodePacked(input)));
     }
     
-    function getSpecies(uint256 tokenId) public view returns (string memory) {
+    function getHeight(uint256 tokenId) public view returns (string memory) {
         require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
-        return pluck(tokenId, "SPECIES", species);
+        return pluck(tokenId, "HEIGHT", height);
     }
     
-    function getSex(uint256 tokenId) public view returns (string memory) {
+    function getBodyShape(uint256 tokenId) public view returns (string memory) {
         require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
-        return pluck(tokenId, "SEX", sex);
+        return pluck(tokenId, "BODYSHAPE", bodyShape);
     }
     
-    function getHeritage(uint256 tokenId) public view returns (string memory) {
+    function getSkinColor(uint256 tokenId) public view returns (string memory) {
         require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
-        return pluck(tokenId, "HERITAGE", heritage);
+        return pluck(tokenId, "SKINCOLOR", skinColor);
     }
     
-    function getPersonality(uint256 tokenId) public view returns (string memory) {
+    function getStrengthOfCharacteristics(uint256 tokenId) public view returns (string memory) {
         require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
-        return pluck(tokenId, "PERSONALITY", personality);
+        return pluck(tokenId, "STRENGTHOFCHARACTERISTICS", strengthOfCharacteristics);
     }
     
     function pluck(uint256 tokenId, string memory keyPrefix, string[] memory sourceArray) internal pure returns (string memory) {
@@ -84,19 +82,19 @@ contract AnimeLootPhysicalCharacteristics is ERC721Enumerable, ReentrancyGuard, 
         string[17] memory parts;
         parts[0] = '<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 350 350"><style>.base { fill: #000000; font-family: serif; font-size: 14px; }</style><rect width="100%" height="100%" fill="#FFF100" /><text x="10" y="20" class="base">';
 
-        parts[1] = getSpecies(tokenId);
+        parts[1] = getHeight(tokenId);
 
         parts[2] = '</text><text x="10" y="40" class="base">';
 
-        parts[3] = getSex(tokenId);
+        parts[3] = getBodyShape(tokenId);
 
         parts[4] = '</text><text x="10" y="60" class="base">';
 
-        parts[5] = getHeritage(tokenId);
+        parts[5] = getSkinColor(tokenId);
 
         parts[6] = '</text><text x="10" y="80" class="base">';
 
-        parts[7] = getPersonality(tokenId);
+        parts[7] = getStrengthOfCharacteristics(tokenId);
 
         parts[8] = '</text><text x="10" y="100" class="base">';
 
