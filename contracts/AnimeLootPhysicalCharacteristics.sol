@@ -55,22 +55,26 @@ contract AnimeLootPhysicalCharacteristics is ERC721Enumerable, ReentrancyGuard, 
     }
     
     function getSpecies(uint256 tokenId) public view returns (string memory) {
+        require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
         return pluck(tokenId, "SPECIES", species);
     }
     
     function getSex(uint256 tokenId) public view returns (string memory) {
+        require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
         return pluck(tokenId, "SEX", sex);
     }
     
     function getHeritage(uint256 tokenId) public view returns (string memory) {
+        require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
         return pluck(tokenId, "HERITAGE", heritage);
     }
     
     function getPersonality(uint256 tokenId) public view returns (string memory) {
+        require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
         return pluck(tokenId, "PERSONALITY", personality);
     }
     
-    function pluck(uint256 tokenId, string memory keyPrefix, string[] memory sourceArray) internal view returns (string memory) {
+    function pluck(uint256 tokenId, string memory keyPrefix, string[] memory sourceArray) internal pure returns (string memory) {
         uint256 rand = random(string(abi.encodePacked(keyPrefix, toString(tokenId))));
         string memory output = sourceArray[rand % sourceArray.length];
         return output;
