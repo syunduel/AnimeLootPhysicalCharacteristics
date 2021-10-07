@@ -25,6 +25,7 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 const mnemonic_ganache = process.env["MNEMONIC_GANACHE"];
 const mnemonic_rinkeby = process.env["MNEMONIC_RINKEBY"];
+const mnemonic_polygon = process.env["MNEMONIC_POLYGON"];
 
 const my_test_address = process.env["MY_TEST_ADDRESS"];
 const my_prod_address = process.env["MY_PROD_ADDRESS"];
@@ -34,7 +35,10 @@ const project_id = process.env["ALPC_INFURA_PROJECT_ID"];
 const rinkeby_infura_url_http = "https://rinkeby.infura.io/v3/" + project_id;
 const rinkeby_infura_url_wss = "wss://rinkeby.infura.io/ws/v3/" + project_id;
 
+const mumbai_infura_url_http = "https://polygon-mumbai.infura.io/v3/" + project_id;
+
 const etherscan_api_key = process.env["ETHERSCAN_API_KEY"];
+const polygonscan_api_key = process.env["POLYGONSCAN_API_KEY"];
 
 module.exports = {
   /**
@@ -47,10 +51,13 @@ module.exports = {
    * $ truffle test --network <network-name>
    */
 
-  contracts_build_directory: "./client/src/contracts",
+//  contracts_build_directory: "./client/src/contracts",
+  contracts_build_directory: "./contracts/artifacts",
+
 
   api_keys: {
-    etherscan: etherscan_api_key
+    etherscan: etherscan_api_key,
+    polygonscan: polygonscan_api_key,
   },
 
   plugins: [
@@ -117,6 +124,21 @@ module.exports = {
       // deploymentPollingInterval: - duration between checks for completion of deployment transactions
       // disableConfirmationListener: - true to disable web3's confirmation listener
 
+    },
+
+        
+    mumbai: {
+      provider: function() { 
+        return new HDWalletProvider(mnemonic_polygon, mumbai_infura_url_http);
+      },
+      network_id: 80001,
+      gas: 5000000,
+      gasPrice: 45000000000,
+      confirmations: 2,
+      skipDryRun: true,
+      websocket: true,
+      timeoutBlocks: 50000,
+      networkCheckTimeout: 1000000
     },
 
 

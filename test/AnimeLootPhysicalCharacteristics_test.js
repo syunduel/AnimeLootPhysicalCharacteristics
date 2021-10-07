@@ -6,5 +6,7 @@ contract("ALPC", (accounts) => {
         assert(alpc, "contract was not deployed");
     });
 
+    
+
 });
 
