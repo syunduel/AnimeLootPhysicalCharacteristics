@@ -6,17 +6,6 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "targetContract_",
-						"type": "address"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -187,101 +176,12 @@
 						"type": "uint256"
 					}
 				],
-				"name": "claim",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
-					}
-				],
 				"name": "getApproved",
 				"outputs": [
 					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
-					}
-				],
-				"name": "getBodyShape",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
-					}
-				],
-				"name": "getHeight",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
-					}
-				],
-				"name": "getSkinColor",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
-					}
-				],
-				"name": "getStrengthOfCharacteristics",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
 					}
 				],
 				"stateMutability": "view",
@@ -348,19 +248,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
-					}
-				],
-				"name": "ownerClaim",
-				"outputs": [],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -603,6 +490,7 @@
 			}
 		],
 		"devdoc": {
+			"details": "Contract module which provides a 'only holder' mechanism, where there is an account (an tokenId holder) that can be granted exclusive access to specific functions. By default, the contract address will be the one that deploys the contract. This can later be changed with {changeTargetContract}. This module is used through inheritance. It will make available the modifier `onlyHolder`, which can be applied to your functions to restrict their use to the holder.",
 			"kind": "dev",
 			"methods": {
 				"approve(address,uint256)": {
@@ -614,11 +502,14 @@
 				"changeTargetContract(address)": {
 					"details": "Change target contract. Can only be called by the current owner."
 				},
+				"constructor": {
+					"details": "Initializes the contract setting."
+				},
 				"getApproved(uint256)": {
 					"details": "See {IERC721-getApproved}."
 				},
 				"getTargetContract()": {
-					"details": "Returns the address of the target current."
+					"details": "Returns the address of the target contract."
 				},
 				"isApprovedForAll(address,address)": {
 					"details": "See {IERC721-isApprovedForAll}."
@@ -679,7 +570,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/AnimeLootPhysicalCharacteristics.sol": "AnimeLootPhysicalCharacteristics"
+			"contracts/ERC721Holdable.sol": "ERC721Holdable"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -699,14 +590,6 @@
 			"urls": [
 				"bzz-raw://b2ebbbe6d0011175bd9e7268b83de3f9c2f9d8d4cbfbaef12aff977d7d727163",
 				"dweb:/ipfs/Qmd5c7Vxtis9wzkDNhxwc6A2QT5H9xn9kfjhx7qx44vpro"
-			]
-		},
-		"@openzeppelin/contracts/security/ReentrancyGuard.sol": {
-			"keccak256": "0x842ccf9a6cd33e17b7acef8372ca42090755217b358fe0c44c98e951ea549d3a",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://6cc5f36034a77d105263ae6d8cc18b16260b4a0f6cdb1a26f21ba3670fdd06dd",
-				"dweb:/ipfs/QmdJrJ2LoG546BkfyZPta96BNmaVBfqZoh8kq7PqHuQyPk"
 			]
 		},
 		"@openzeppelin/contracts/token/ERC721/ERC721.sol": {
@@ -797,28 +680,12 @@
 				"dweb:/ipfs/QmcsVgLgzWdor3UnAztUkXKNGcysm1MPneWksF72AvnwBx"
 			]
 		},
-		"contracts/AnimeLootPhysicalCharacteristics.sol": {
-			"keccak256": "0xd0859bd9c6bb1831b69328d4f50e3cd6bd8ef3357e16d93fde1bd9eb09c2f90f",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://79f519716397950f89fb6efcb5e8a3b8ba830c080881c7839045719f90f010ec",
-				"dweb:/ipfs/QmXt5kERsBNKV5uBJumT9nYQWGt99p2RzznshZdZHg9off"
-			]
-		},
-		"contracts/Base64.sol": {
-			"keccak256": "0xcb6b5a45a39105c93d800e07cf6524238b74966783d47c3f01ecba28be413694",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://e75640df71f1ba0a0d55230dfd1093bad60cccb38b958e34d230f1c8ff428c9e",
-				"dweb:/ipfs/QmY2AVB1uQmvyTaNYtymMu6yNHZ31w4PHXtNVt4NKGCDYm"
-			]
-		},
 		"contracts/ERC721Holdable.sol": {
-			"keccak256": "0x655c54298cbc638ed624fef8bb3cd7ff9968e0dd646a6917c2522269c8c81d9f",
+			"keccak256": "0x2a5d4f2454dde3816304d85ae6b9892f77b6365ef32e99af66fc7723fdd583c8",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3993a5bdb20430b61b051b3b5569715280950fc28133b6f93316c79c57443f1c",
-				"dweb:/ipfs/QmVkghKxQ2rqKVs4a3ZLrciBBcU6ipYLpAcyHPz74Lv9NN"
+				"bzz-raw://3262824a5cdcd871196eb2c3eaf1d18772dea0390dd9d7a1ed79f6395286015c",
+				"dweb:/ipfs/Qmemqovszmw56WDi6abw468D1F8vGq6aBKxeqiSiFMZGCw"
 			]
 		}
 	},

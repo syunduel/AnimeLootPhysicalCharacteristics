@@ -6,8 +6,9 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
 import "./Base64.sol";
+import "./ERC721Holdable.sol";
 
-contract AnimeLootPhysicalCharacteristics is ERC721Enumerable, ReentrancyGuard, Ownable {
+contract AnimeLootPhysicalCharacteristics is ERC721Holdable, ReentrancyGuard {
 
     string[] private height = [
         "Tall",
@@ -121,7 +122,7 @@ contract AnimeLootPhysicalCharacteristics is ERC721Enumerable, ReentrancyGuard, 
         return output;
     }
 
-    function claim(uint256 tokenId) public nonReentrant {
+    function claim(uint256 tokenId) public nonReentrant onlyHolder(tokenId) {
         require(tokenId > 0 && tokenId < 7778, "Token ID invalid");
         _safeMint(_msgSender(), tokenId);
     }
@@ -153,6 +154,6 @@ contract AnimeLootPhysicalCharacteristics is ERC721Enumerable, ReentrancyGuard, 
         return string(buffer);
     }
     
-    constructor() ERC721("AnimeLootPhysicalCharacteristics", "AnimeLootPhysicalCharacteristics") Ownable() {}
+    constructor(address targetContract_) ERC721("AnimeLootPhysicalCharacteristics", "AnimeLootPhysicalCharacteristics") Ownable() ERC721Holdable(targetContract_) {}
 
 }
