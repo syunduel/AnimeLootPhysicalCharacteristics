@@ -6,13 +6,7 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "targetContract_",
-						"type": "address"
-					}
-				],
+				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -91,25 +85,6 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "previousContract",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "newContract",
-						"type": "address"
-					}
-				],
-				"name": "TargetContractTransferred",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
 						"name": "from",
 						"type": "address"
 					},
@@ -128,19 +103,6 @@
 				],
 				"name": "Transfer",
 				"type": "event"
-			},
-			{
-				"inputs": [],
-				"name": "_targetContract",
-				"outputs": [
-					{
-						"internalType": "contract IERC721Enumerable",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
 			},
 			{
 				"inputs": [
@@ -177,19 +139,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "newTargetContract",
-						"type": "address"
-					}
-				],
-				"name": "changeTargetContract",
-				"outputs": [],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -232,7 +181,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "getBestFeature",
+				"name": "getHeritage",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -251,7 +200,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "getBodyShape",
+				"name": "getPersonality",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -270,7 +219,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "getHeight",
+				"name": "getSex",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -289,44 +238,12 @@
 						"type": "uint256"
 					}
 				],
-				"name": "getImpressiveColor",
+				"name": "getSpecies",
 				"outputs": [
 					{
 						"internalType": "string",
 						"name": "",
 						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
-					}
-				],
-				"name": "getStrengthOfRace",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getTargetContract",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -643,14 +560,8 @@
 				"balanceOf(address)": {
 					"details": "See {IERC721-balanceOf}."
 				},
-				"changeTargetContract(address)": {
-					"details": "Change target contract. Can only be called by the current owner."
-				},
 				"getApproved(uint256)": {
 					"details": "See {IERC721-getApproved}."
-				},
-				"getTargetContract()": {
-					"details": "Returns the address of the target contract."
 				},
 				"isApprovedForAll(address,address)": {
 					"details": "See {IERC721-isApprovedForAll}."
@@ -711,7 +622,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/AnimeLootPhysicalCharacteristics.sol": "AnimeLootPhysicalCharacteristics"
+			"contracts/AnimeLoot.sol": "AnimeLoot"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -829,12 +740,12 @@
 				"dweb:/ipfs/QmcsVgLgzWdor3UnAztUkXKNGcysm1MPneWksF72AvnwBx"
 			]
 		},
-		"contracts/AnimeLootPhysicalCharacteristics.sol": {
-			"keccak256": "0x47c709beecf8df8bf41f6486bc33ff2496326ff2713006f25e594cafd766a8ed",
+		"contracts/AnimeLoot.sol": {
+			"keccak256": "0x7725503c079fc21c5c76c65d5b5d8375e7b1e1a911d315256b78b7a556b88d61",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d16522f0af8078ef5eebc907ffb8b8e81a17c94c59fecaa389443bdca51335e7",
-				"dweb:/ipfs/QmZApMzwMtCtVzUqGfprF3YbeTLid3sLdq82kCZ3oziMWA"
+				"bzz-raw://cbdc394ce807319ea5d589efc8b159e4dee423b90f558f7076ae237183258dfd",
+				"dweb:/ipfs/QmX8mtJN7sRJ7xCWbLjTNTb5tHoocr1nUhUMswmcqBKiZM"
 			]
 		},
 		"contracts/Base64.sol": {
@@ -843,14 +754,6 @@
 			"urls": [
 				"bzz-raw://e75640df71f1ba0a0d55230dfd1093bad60cccb38b958e34d230f1c8ff428c9e",
 				"dweb:/ipfs/QmY2AVB1uQmvyTaNYtymMu6yNHZ31w4PHXtNVt4NKGCDYm"
-			]
-		},
-		"contracts/ERC721Holdable.sol": {
-			"keccak256": "0x834890b9e7ceffdefc225901dced61fe346d79a8808e83ccc02b9f127735c558",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://7faddd7adfd4a873871b70f4e4b730d33f2b1468ed2753842ab5e964539f4cb6",
-				"dweb:/ipfs/QmUAk1Lp5AndXNRyjMELBB3aHiDMLLv4gXnE8jfsh86bdZ"
 			]
 		}
 	},

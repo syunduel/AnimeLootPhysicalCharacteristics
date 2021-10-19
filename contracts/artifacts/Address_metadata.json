@@ -6,22 +6,20 @@
 	"output": {
 		"abi": [],
 		"devdoc": {
-			"author": "Brecht Devos <brecht@loopring.org>",
+			"details": "Collection of functions related to the address type",
 			"kind": "dev",
 			"methods": {},
-			"title": "Base64",
 			"version": 1
 		},
 		"userdoc": {
 			"kind": "user",
 			"methods": {},
-			"notice": "[MIT License]Provides a function for encoding some bytes in base64",
 			"version": 1
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/AnimeLoot.sol": "Base64"
+			"contracts/AnimeLoot.sol": "Address"
 		},
 		"evmVersion": "london",
 		"libraries": {},

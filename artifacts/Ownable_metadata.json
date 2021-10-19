@@ -85,7 +85,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/AnimeLoot.sol": "Ownable"
+			"AnimeLootPhysicalCharacteristics_flat.sol": "Ownable"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -99,12 +99,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/AnimeLoot.sol": {
-			"keccak256": "0x49d4056019e2901cef7f595e55dd59f0cbe06a8b1fe4d07e8635885dd1c09275",
-			"license": "MIT",
+		"AnimeLootPhysicalCharacteristics_flat.sol": {
+			"keccak256": "0x1d48dc1750b8170091bb9b7b263156c7277262bd8a54e50f91f37a8b55218915",
 			"urls": [
-				"bzz-raw://24a1d5e38437904ecd52b8e09c1dc1e90bf5a820b1068dd4eb2d619fe6b1f379",
-				"dweb:/ipfs/QmQpqD3WWJ9aUpkivEjJYntiQxoN6uWatbpN9yYyzv1Gun"
+				"bzz-raw://d10084c517acdb76b1c814211fcd3859207de7637822a0f2f0158d8d131f1d24",
+				"dweb:/ipfs/QmW57FHuCmckHktCe2BfxVNrbvVT4zz3cRRwoWUe4topQw"
 			]
 		}
 	},

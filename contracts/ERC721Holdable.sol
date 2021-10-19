@@ -19,29 +19,29 @@ import "@openzeppelin/contracts/utils/Context.sol";
  * the holder.
  */
 abstract contract ERC721Holdable is ERC721Enumerable, Ownable {
-    address private _targetContract;
+    IERC721Enumerable public _targetContract;
 
     event TargetContractTransferred(address indexed previousContract, address indexed newContract);
 
     /**
      * @dev Initializes the contract setting.
      */
-    constructor(address targetContract_) {
-        _targetContract = targetContract_;
+    constructor(address targetContractAddress_) {
+        _targetContract = IERC721Enumerable(targetContractAddress_);
     }
 
     /**
      * @dev Returns the address of the target contract.
      */
     function getTargetContract() public view virtual returns (address) {
-        return _targetContract;
+        return address(_targetContract);
     }
 
     /**
      * @dev Throws if called by any account other than the holder.
      */
     modifier onlyHolder(uint256 tokenId) {
-        require(ERC721.ownerOf(tokenId) == _msgSender(), "Holdable: caller is not the holder");
+        require(_targetContract.ownerOf(tokenId) == _msgSender(), "Holdable: caller is not the holder");
         _;
     }
 
@@ -52,8 +52,8 @@ abstract contract ERC721Holdable is ERC721Enumerable, Ownable {
     function changeTargetContract(address newTargetContract) public virtual onlyOwner {
         // allow zero address
         // require(newTargetContract != address(0), "Holdable: new target contract is the zero address");
-        address oldTargetContract = _targetContract;
-        _targetContract = newTargetContract;
-        emit TargetContractTransferred(oldTargetContract, newTargetContract);
+        IERC721Enumerable oldTargetContract = _targetContract;
+        _targetContract = IERC721Enumerable(newTargetContract);
+        emit TargetContractTransferred(address(oldTargetContract), address(newTargetContract));
     }
 }

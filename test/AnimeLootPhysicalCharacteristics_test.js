@@ -1,12 +1,17 @@
-const ALPCContract = artifacts.require("AnimeLootPhysicalCharacteristics2");
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
 
-contract("ALPC", (accounts) => {
-    if("has been deployed successfully", async () => {
-        const alpc = await ALPCContract.deployed();
-        assert(alpc, "contract was not deployed");
-    });
+import "remix_tests.sol";
+import "./../contracts/AnimeLoot.sol";
+import "./../contracts/AnimeLootPhysicalCharacteristics.sol";
 
+contract MyALPCTest {
+    AnimeLoot al;
+    AnimeLootPhysicalCharacteristics alpc;
     
-
-});
-
+    // beforeEach works before running each test
+    function beforeEach() public {
+        al = new AnimeLoot();
+        alpc = new AnimeLootPhysicalCharacteristics(address(al));
+    }
+}

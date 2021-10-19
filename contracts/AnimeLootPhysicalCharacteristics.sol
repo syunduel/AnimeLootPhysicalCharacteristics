@@ -11,64 +11,99 @@ import "./ERC721Holdable.sol";
 contract AnimeLootPhysicalCharacteristics is ERC721Holdable, ReentrancyGuard {
 
     string[] private height = [
+        "Very tall",
+        "Tall",
         "Tall",
         "Medium",
-        "Short"
+        "Medium",
+        "Short",
+        "Short",
+        "Very short"
     ];
     
     string[] private bodyShape = [
         "Strong",
         "Plump",
         "Normal",
+        "Normal",
         "Slender"
     ];
     
-    string[] private skinColor = [
-        "TBD"
-        "Others"
+    string[] private strengthOfRace = [
+       "Pure",
+       "Pure",
+       "Pure",
+       "Half",
+       "Half",
+       "Quarter",
+       "Quarter",
+       "One-eighth"
     ];
     
-    string[] private strengthOfCharacteristics = [
-       "Pure blood",
-       "Half",
-       "Quarter"
+    string[] private impressiveColor = [
+        "Red",
+        "Yellow",
+        "Green",
+        "Blue",
+        "Purple",
+        "White",
+        "Black",
+        "Purple",
+        "Gold",
+        "Silver"
     ];
 
-    string[] private kindOfTherianthrope = [
-        "Mammalian",
-        "Reptiles",
-        "Birds",
-        "Amphibians",
-        "Primates",
-        "Centaur",
-        "Lamia",
-        "Harpy",
-        "Others"
+    string[] private bestFeature = [
+        "Healthy",
+        "Fair skin",
+        "Invalidism",
+        "Baby face",
+        "Gallant",
+        "Neat",
+        "Attractive",
+        "Cleanliness",
+        "One eye",
+        "High voice",
+        "Low voice",
+        "Scar on face",
+        "Astringent",
+        "Dandy",
+        "Boyish",
+        "Beard",
+        "Girlish",
+        "Pretty",
+        "Tiny"
     ];
 
     
     function random(string memory input) internal pure returns (uint256) {
+        // require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
         return uint256(keccak256(abi.encodePacked(input)));
     }
     
     function getHeight(uint256 tokenId) public view returns (string memory) {
-        require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        // require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
         return pluck(tokenId, "HEIGHT", height);
     }
     
     function getBodyShape(uint256 tokenId) public view returns (string memory) {
-        require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        // require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
         return pluck(tokenId, "BODYSHAPE", bodyShape);
     }
     
-    function getSkinColor(uint256 tokenId) public view returns (string memory) {
-        require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
-        return pluck(tokenId, "SKINCOLOR", skinColor);
+    function getStrengthOfRace(uint256 tokenId) public view returns (string memory) {
+        // require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        return pluck(tokenId, "STRENGTHOFRACE", strengthOfRace);
     }
     
-    function getStrengthOfCharacteristics(uint256 tokenId) public view returns (string memory) {
-        require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
-        return pluck(tokenId, "STRENGTHOFCHARACTERISTICS", strengthOfCharacteristics);
+    function getImpressiveColor(uint256 tokenId) public view returns (string memory) {
+        // require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        return pluck(tokenId, "IMPRESSIVECOLOR", impressiveColor);
+    }
+    
+    function getBestFeature(uint256 tokenId) public view returns (string memory) {
+        // require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        return pluck(tokenId, "BESTFEATURE", bestFeature);
     }
     
     function pluck(uint256 tokenId, string memory keyPrefix, string[] memory sourceArray) internal pure returns (string memory) {
@@ -81,27 +116,27 @@ contract AnimeLootPhysicalCharacteristics is ERC721Holdable, ReentrancyGuard {
         string[17] memory parts;
         parts[0] = '<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 350 350"><style>.base { fill: #000000; font-family: serif; font-size: 14px; }</style><rect width="100%" height="100%" fill="#FFF100" /><text x="10" y="20" class="base">';
 
-        parts[1] = getHeight(tokenId);
+        parts[1] = 'AnimeLoot Characteristics';
 
         parts[2] = '</text><text x="10" y="40" class="base">';
 
-        parts[3] = getBodyShape(tokenId);
+        parts[3] = getHeight(tokenId);
 
         parts[4] = '</text><text x="10" y="60" class="base">';
 
-        parts[5] = getSkinColor(tokenId);
+        parts[5] = getBodyShape(tokenId);
 
         parts[6] = '</text><text x="10" y="80" class="base">';
 
-        parts[7] = getStrengthOfCharacteristics(tokenId);
+        parts[7] = getStrengthOfRace(tokenId);
 
         parts[8] = '</text><text x="10" y="100" class="base">';
 
-        parts[9] = '';
+        parts[9] = getImpressiveColor(tokenId);
 
         parts[10] = '</text><text x="10" y="120" class="base">';
 
-        parts[11] = '';
+        parts[11] = getBestFeature(tokenId);
 
         parts[12] = '</text><text x="10" y="140" class="base">';
 
@@ -116,7 +151,7 @@ contract AnimeLootPhysicalCharacteristics is ERC721Holdable, ReentrancyGuard {
         string memory output = string(abi.encodePacked(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6], parts[7], parts[8]));
         output = string(abi.encodePacked(output, parts[9], parts[10], parts[11], parts[12], parts[13], parts[14], parts[15], parts[16]));
         
-        string memory json = Base64.encode(bytes(string(abi.encodePacked('{"name": "Anime Character #', toString(tokenId), '", "description": "AnimeLoot is randomized anime characters generated and stored on chain. Other features of the characters are intentionally omitted for others to interpret. Feel free to use AnimeLoot in any way you want.", "image": "data:image/svg+xml;base64,', Base64.encode(bytes(output)), '"}'))));
+        string memory json = Base64.encode(bytes(string(abi.encodePacked('{"name": "Anime Character Characteristics #', toString(tokenId), '", "description": "AnimeLootCharacteristics is randomized anime characters characteristics generated and stored on chain. Other features of the characters are intentionally omitted for others to interpret. Feel free to use AnimeLootCharacteristics in any way you want.", "image": "data:image/svg+xml;base64,', Base64.encode(bytes(output)), '"}'))));
         output = string(abi.encodePacked('data:application/json;base64,', json));
 
         return output;
