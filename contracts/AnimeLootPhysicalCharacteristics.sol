@@ -53,26 +53,30 @@ contract AnimeLootPhysicalCharacteristics is ERC721Holdable, ReentrancyGuard {
         "Silver"
     ];
 
-    string[] private bestFeature = [
-        "Healthy",
-        "Fair skin",
-        "Invalidism",
+    string[] private facialFeature = [
+        "Tiny",
+        "Pretty",
         "Baby face",
+        "Attractive",
         "Gallant",
         "Neat",
-        "Attractive",
-        "Cleanliness",
-        "One eye",
-        "High voice",
-        "Low voice",
-        "Scar on face",
         "Astringent",
         "Dandy",
+        "Scar on face",
+        "Scar on tattoo",
+        "One eye"
+    ];
+
+
+    string[] private appearanceFeature = [
+        "Cleanliness",
+        "Fair skin",
+        "Dark skin",
+        "Invalidism",
+        "Healthy",
         "Boyish",
-        "Beard",
-        "Girlish",
-        "Pretty",
-        "Tiny"
+        "Neutral",
+        "Girlish"
     ];
 
     
@@ -101,9 +105,14 @@ contract AnimeLootPhysicalCharacteristics is ERC721Holdable, ReentrancyGuard {
         return pluck(tokenId, "IMPRESSIVECOLOR", impressiveColor);
     }
     
-    function getBestFeature(uint256 tokenId) public view returns (string memory) {
+    function getFacialFeature(uint256 tokenId) public view returns (string memory) {
         // require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
-        return pluck(tokenId, "BESTFEATURE", bestFeature);
+        return pluck(tokenId, "FACIALFEATURE", facialFeature);
+    }
+    
+    function getAppearanceFeature(uint256 tokenId) public view returns (string memory) {
+        // require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        return pluck(tokenId, "APPEARANCEFEATURE", appearanceFeature);
     }
     
     function pluck(uint256 tokenId, string memory keyPrefix, string[] memory sourceArray) internal pure returns (string memory) {
@@ -136,11 +145,11 @@ contract AnimeLootPhysicalCharacteristics is ERC721Holdable, ReentrancyGuard {
 
         parts[10] = '</text><text x="10" y="120" class="base">';
 
-        parts[11] = getBestFeature(tokenId);
+        parts[11] = getFacialFeature(tokenId);
 
         parts[12] = '</text><text x="10" y="140" class="base">';
 
-        parts[13] = '';
+        parts[13] = getAppearanceFeature(tokenId);
 
         parts[14] = '</text><text x="10" y="160" class="base">';
 
