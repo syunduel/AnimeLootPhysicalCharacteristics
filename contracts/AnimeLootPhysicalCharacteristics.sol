@@ -81,41 +81,35 @@ contract AnimeLootPhysicalCharacteristics is ERC721Holdable, ReentrancyGuard {
 
     
     function random(string memory input) internal pure returns (uint256) {
-        // require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
         return uint256(keccak256(abi.encodePacked(input)));
     }
     
     function getHeight(uint256 tokenId) public view returns (string memory) {
-        // require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
         return pluck(tokenId, "HEIGHT", height);
     }
     
     function getBodyShape(uint256 tokenId) public view returns (string memory) {
-        // require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
         return pluck(tokenId, "BODYSHAPE", bodyShape);
     }
     
     function getStrengthOfRace(uint256 tokenId) public view returns (string memory) {
-        // require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
         return pluck(tokenId, "STRENGTHOFRACE", strengthOfRace);
     }
     
     function getImpressiveColor(uint256 tokenId) public view returns (string memory) {
-        // require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
         return pluck(tokenId, "IMPRESSIVECOLOR", impressiveColor);
     }
     
     function getFacialFeature(uint256 tokenId) public view returns (string memory) {
-        // require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
         return pluck(tokenId, "FACIALFEATURE", facialFeature);
     }
     
     function getAppearanceFeature(uint256 tokenId) public view returns (string memory) {
-        // require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
         return pluck(tokenId, "APPEARANCEFEATURE", appearanceFeature);
     }
     
-    function pluck(uint256 tokenId, string memory keyPrefix, string[] memory sourceArray) internal pure returns (string memory) {
+    function pluck(uint256 tokenId, string memory keyPrefix, string[] memory sourceArray) internal view returns (string memory) {
+        require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
         uint256 rand = random(string(abi.encodePacked(keyPrefix, toString(tokenId))));
         string memory output = sourceArray[rand % sourceArray.length];
         return output;

@@ -849,11 +849,11 @@
 			]
 		},
 		"contracts/AnimeLootPhysicalCharacteristics.sol": {
-			"keccak256": "0x66896abfd2403d29239eda3bb22e53f0b7ac86ff12632a45221a18b7819d52ac",
+			"keccak256": "0x681ac37568f4cc65187c41f446133baefd2547f4dc7585f3259a1362b7c87c93",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://440dadffc3bd8d7c97d584732b466c006e2d1e96d5e1947f488e10c22b13b8fa",
-				"dweb:/ipfs/QmeUtihN98YZTu7xvBir1cE3okJ6nxucyx1ctYaE6JmTMG"
+				"bzz-raw://0a665f1d28f68e74d864cda316d21113e3db049afd320498586fc96f9a834fae",
+				"dweb:/ipfs/QmWvj3ebyJ1W46rFiEQQUgXXprncjbAo6Q28fN7DsTcwAh"
 			]
 		},
 		"contracts/Base64.sol": {
