@@ -2,13 +2,12 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
 import "./Base64.sol";
 import "./ERC721Holdable.sol";
 
-contract AnimeLootPhysicalCharacteristics is ERC721Holdable, ReentrancyGuard {
+contract AnimeLootPhysicalCharacteristics is ERC721Holdable {
 
     string[] private height = [
         "Very tall",
@@ -48,7 +47,6 @@ contract AnimeLootPhysicalCharacteristics is ERC721Holdable, ReentrancyGuard {
         "Purple",
         "White",
         "Black",
-        "Purple",
         "Gold",
         "Silver"
     ];
@@ -160,16 +158,17 @@ contract AnimeLootPhysicalCharacteristics is ERC721Holdable, ReentrancyGuard {
         return output;
     }
 
-    function claim(uint256 tokenId) public nonReentrant onlyHolder(tokenId) {
-        require(tokenId > 0 && tokenId < 7778, "Token ID invalid");
+    function claim(uint256 tokenId) public override nonReentrant onlyHolder(tokenId) {
+        require(tokenId > 0 && tokenId < 8001, "Token ID invalid. out of range");
+        require(ownerOf(tokenId) == address(0), "Holdable: Token ID invalid. already claimed");
         _safeMint(_msgSender(), tokenId);
     }
     
     function ownerClaim(uint256 tokenId) public nonReentrant onlyOwner {
-        require(tokenId > 7777 && tokenId < 8001, "Token ID invalid");
+        require(tokenId > 8000 && tokenId < 8334, "Token ID invalid");
         _safeMint(owner(), tokenId);
     }
-    
+
     function toString(uint256 value) internal pure returns (string memory) {
     // Inspired by OraclizeAPI's implementation - MIT license
     // https://github.com/oraclize/ethereum-api/blob/b42146b063c7d6ee1358846c198246239e9360e8/oraclizeAPI_0.4.25.sol

@@ -3,6 +3,7 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
 
@@ -18,7 +19,7 @@ import "@openzeppelin/contracts/utils/Context.sol";
  * `onlyHolder`, which can be applied to your functions to restrict their use to
  * the holder.
  */
-abstract contract ERC721Holdable is ERC721Enumerable, Ownable {
+abstract contract ERC721Holdable is ERC721Enumerable, Ownable, ReentrancyGuard {
     IERC721Enumerable public _targetContract;
 
     event TargetContractTransferred(address indexed previousContract, address indexed newContract);
@@ -43,6 +44,30 @@ abstract contract ERC721Holdable is ERC721Enumerable, Ownable {
     modifier onlyHolder(uint256 tokenId) {
         require(_targetContract.ownerOf(tokenId) == _msgSender(), "Holdable: caller is not the holder");
         _;
+    }
+
+    /**
+     * @dev claim only holder. you should override and add/modify require.
+     */
+    function claim(uint256 tokenId) public virtual;
+
+    /**
+     * @dev claim all _msgSender can claim. Throws if there is no tokenId that can be claimed.
+     */
+    function claimAll() public virtual nonReentrant {
+        require(balanceOf(_msgSender()) > 0, "Holdable: There is no tokenid that can be claimed");
+
+        uint256 count = balanceOf(_msgSender());
+        uint256 claimed = 0;
+        for (uint256 i = 0; i < count; i++) {
+            uint256 nowTokenId = tokenOfOwnerByIndex(_msgSender(), i);
+            if (ownerOf(nowTokenId) == address(0)) {
+                claim(nowTokenId);
+                claimed++;
+            }
+        }
+
+        require(claimed > 0, "Holdable: There is no tokenid that can be claimed");
     }
 
     /**

@@ -53,6 +53,8 @@
 			"approve(address,uint256)": "095ea7b3",
 			"balanceOf(address)": "70a08231",
 			"changeTargetContract(address)": "ab86de6c",
+			"claim(uint256)": "379607f5",
+			"claimAll()": "d1058e59",
 			"getApproved(uint256)": "081812fc",
 			"getTargetContract()": "7a8639ed",
 			"isApprovedForAll(address,address)": "e985e9c5",
@@ -246,6 +248,26 @@
 				}
 			],
 			"name": "changeTargetContract",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				}
+			],
+			"name": "claim",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "claimAll",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"

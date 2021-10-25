@@ -206,6 +206,13 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "claimAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -665,6 +672,12 @@
 				"changeTargetContract(address)": {
 					"details": "Change target contract. Can only be called by the current owner."
 				},
+				"claim(uint256)": {
+					"details": "claim only holder. you should override and add/modify require."
+				},
+				"claimAll()": {
+					"details": "claim all _msgSender can claim. Throws if there is no tokenId that can be claimed."
+				},
 				"getApproved(uint256)": {
 					"details": "See {IERC721-getApproved}."
 				},
@@ -849,11 +862,11 @@
 			]
 		},
 		"contracts/AnimeLootPhysicalCharacteristics.sol": {
-			"keccak256": "0x681ac37568f4cc65187c41f446133baefd2547f4dc7585f3259a1362b7c87c93",
+			"keccak256": "0x3dde9953fa4872537f0c740ae030dcf6ea12ad9c5d7268b47ab885adf5ba72d4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0a665f1d28f68e74d864cda316d21113e3db049afd320498586fc96f9a834fae",
-				"dweb:/ipfs/QmWvj3ebyJ1W46rFiEQQUgXXprncjbAo6Q28fN7DsTcwAh"
+				"bzz-raw://c735149919d38d7dd09e225893c05ad6155b7c032522d9ead55d450977de8a9b",
+				"dweb:/ipfs/QmTQ4P6yFvJfJ9Uf4BPppPURyrarXKEFf6gZ8JAKjZjqpK"
 			]
 		},
 		"contracts/Base64.sol": {
@@ -865,11 +878,11 @@
 			]
 		},
 		"contracts/ERC721Holdable.sol": {
-			"keccak256": "0x834890b9e7ceffdefc225901dced61fe346d79a8808e83ccc02b9f127735c558",
+			"keccak256": "0xc75f5311109e3529afa3892483d37bb0632c0bc0a372ec47e3fa5929023ad38d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7faddd7adfd4a873871b70f4e4b730d33f2b1468ed2753842ab5e964539f4cb6",
-				"dweb:/ipfs/QmUAk1Lp5AndXNRyjMELBB3aHiDMLLv4gXnE8jfsh86bdZ"
+				"bzz-raw://7b06685378be4f58c08dce2caf27f4ddef698e5f93c818c069070181e1a13e5f",
+				"dweb:/ipfs/QmRW1hD4Lguajo7CDYaHpoNjJjh5J3MwqQ4M9E87XHv1PX"
 			]
 		}
 	},
