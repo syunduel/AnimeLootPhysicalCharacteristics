@@ -536,7 +536,7 @@
 					"details": "Change target contract. Can only be called by the current owner."
 				},
 				"claim(uint256)": {
-					"details": "claim only holder. you should override and add/modify require."
+					"details": "claim. should be only holder. you should override and add/modify require."
 				},
 				"claimAll()": {
 					"details": "claim all _msgSender can claim. Throws if there is no tokenId that can be claimed."
@@ -728,11 +728,11 @@
 			]
 		},
 		"contracts/ERC721Holdable.sol": {
-			"keccak256": "0xc75f5311109e3529afa3892483d37bb0632c0bc0a372ec47e3fa5929023ad38d",
+			"keccak256": "0xf5b14ce3eb159d47d28d12471cbd85c3da83bf158027275f52530504b428e063",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7b06685378be4f58c08dce2caf27f4ddef698e5f93c818c069070181e1a13e5f",
-				"dweb:/ipfs/QmRW1hD4Lguajo7CDYaHpoNjJjh5J3MwqQ4M9E87XHv1PX"
+				"bzz-raw://971bbf3ff6970502be6ec60c15f98cee2ec1680dd4d46b8b581c1d49d90de248",
+				"dweb:/ipfs/QmQcg9a6HBXHVyAkLsutVbDFYYkdyWtJnH1MPTWpZFER4E"
 			]
 		}
 	},

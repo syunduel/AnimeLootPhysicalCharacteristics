@@ -673,7 +673,7 @@
 					"details": "Change target contract. Can only be called by the current owner."
 				},
 				"claim(uint256)": {
-					"details": "claim only holder. you should override and add/modify require."
+					"details": "claim. should be only holder. you should override and add/modify require."
 				},
 				"claimAll()": {
 					"details": "claim all _msgSender can claim. Throws if there is no tokenId that can be claimed."
@@ -862,11 +862,11 @@
 			]
 		},
 		"contracts/AnimeLootPhysicalCharacteristics.sol": {
-			"keccak256": "0x3dde9953fa4872537f0c740ae030dcf6ea12ad9c5d7268b47ab885adf5ba72d4",
+			"keccak256": "0x9ee8d56834788dee0fb8f3d1cc3ced4096e9bfb8cf4a8a72b67e815d1c0b159c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c735149919d38d7dd09e225893c05ad6155b7c032522d9ead55d450977de8a9b",
-				"dweb:/ipfs/QmTQ4P6yFvJfJ9Uf4BPppPURyrarXKEFf6gZ8JAKjZjqpK"
+				"bzz-raw://9cae3808f3b1a505fa3f58bb52ad1e27680aa00bd01f1ca5b8c33664198c1d2e",
+				"dweb:/ipfs/QmW4QM3prX7gxAtNfEPWtbhxwuEA5QA3Lf8drqTQDXxa7E"
 			]
 		},
 		"contracts/Base64.sol": {
@@ -878,11 +878,11 @@
 			]
 		},
 		"contracts/ERC721Holdable.sol": {
-			"keccak256": "0xc75f5311109e3529afa3892483d37bb0632c0bc0a372ec47e3fa5929023ad38d",
+			"keccak256": "0xf5b14ce3eb159d47d28d12471cbd85c3da83bf158027275f52530504b428e063",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7b06685378be4f58c08dce2caf27f4ddef698e5f93c818c069070181e1a13e5f",
-				"dweb:/ipfs/QmRW1hD4Lguajo7CDYaHpoNjJjh5J3MwqQ4M9E87XHv1PX"
+				"bzz-raw://971bbf3ff6970502be6ec60c15f98cee2ec1680dd4d46b8b581c1d49d90de248",
+				"dweb:/ipfs/QmQcg9a6HBXHVyAkLsutVbDFYYkdyWtJnH1MPTWpZFER4E"
 			]
 		}
 	},

@@ -47,21 +47,22 @@ abstract contract ERC721Holdable is ERC721Enumerable, Ownable, ReentrancyGuard {
     }
 
     /**
-     * @dev claim only holder. you should override and add/modify require.
+     * @dev claim. should be only holder. you should override and add/modify require.
      */
     function claim(uint256 tokenId) public virtual;
 
     /**
      * @dev claim all _msgSender can claim. Throws if there is no tokenId that can be claimed.
      */
-    function claimAll() public virtual nonReentrant {
-        require(balanceOf(_msgSender()) > 0, "Holdable: There is no tokenid that can be claimed");
+    function claimAll() public virtual {
 
-        uint256 count = balanceOf(_msgSender());
+        uint256 count = _targetContract.balanceOf(_msgSender());
+        require(count > 0, "Holdable: There is no tokenid that can be claimed");
+
         uint256 claimed = 0;
         for (uint256 i = 0; i < count; i++) {
-            uint256 nowTokenId = tokenOfOwnerByIndex(_msgSender(), i);
-            if (ownerOf(nowTokenId) == address(0)) {
+            uint256 nowTokenId = _targetContract.tokenOfOwnerByIndex(_msgSender(), i);
+            if (!_exists(nowTokenId)) {
                 claim(nowTokenId);
                 claimed++;
             }

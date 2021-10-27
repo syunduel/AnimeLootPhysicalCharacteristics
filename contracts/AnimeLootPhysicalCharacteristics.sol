@@ -160,7 +160,7 @@ contract AnimeLootPhysicalCharacteristics is ERC721Holdable {
 
     function claim(uint256 tokenId) public override nonReentrant onlyHolder(tokenId) {
         require(tokenId > 0 && tokenId < 8001, "Token ID invalid. out of range");
-        require(ownerOf(tokenId) == address(0), "Holdable: Token ID invalid. already claimed");
+        require(!_exists(tokenId), "Token ID invalid. Already claimed");
         _safeMint(_msgSender(), tokenId);
     }
     
