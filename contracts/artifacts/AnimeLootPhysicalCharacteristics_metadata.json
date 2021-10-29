@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.9+commit.e5eed63a"
 	},
 	"language": "Solidity",
 	"output": {
@@ -862,11 +862,11 @@
 			]
 		},
 		"contracts/AnimeLootPhysicalCharacteristics.sol": {
-			"keccak256": "0x9ee8d56834788dee0fb8f3d1cc3ced4096e9bfb8cf4a8a72b67e815d1c0b159c",
+			"keccak256": "0x6c2c3c897d8ebe22801499d8cc2c24c51d097fd4c927a5a380867a482a573eb6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9cae3808f3b1a505fa3f58bb52ad1e27680aa00bd01f1ca5b8c33664198c1d2e",
-				"dweb:/ipfs/QmW4QM3prX7gxAtNfEPWtbhxwuEA5QA3Lf8drqTQDXxa7E"
+				"bzz-raw://983d2844399e3c490d61ebccfac5d04bdfd08ae489585da09ebdc16ab49d5ed3",
+				"dweb:/ipfs/QmPTrncwaHqigYHPk5xGcp9YpNNQNBDbGJEuYpzQD2WRmF"
 			]
 		},
 		"contracts/Base64.sol": {
@@ -878,11 +878,11 @@
 			]
 		},
 		"contracts/ERC721Holdable.sol": {
-			"keccak256": "0xf5b14ce3eb159d47d28d12471cbd85c3da83bf158027275f52530504b428e063",
+			"keccak256": "0xf30145cf831c7e1153c8a70f3e1963f9ede80768ec8f6bbe52f3bc7cd783a674",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://971bbf3ff6970502be6ec60c15f98cee2ec1680dd4d46b8b581c1d49d90de248",
-				"dweb:/ipfs/QmQcg9a6HBXHVyAkLsutVbDFYYkdyWtJnH1MPTWpZFER4E"
+				"bzz-raw://5fe95579e4f62ba3dd844a586cf5fe8dff0d0b19d6512ad09d74b0458dd49990",
+				"dweb:/ipfs/QmbsEfTVmDATj4RpAcKtzK3jxbm77imGUosNxhUzKHpkqD"
 			]
 		}
 	},

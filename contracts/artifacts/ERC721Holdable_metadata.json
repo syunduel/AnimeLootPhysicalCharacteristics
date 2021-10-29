@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.9+commit.e5eed63a"
 	},
 	"language": "Solidity",
 	"output": {
@@ -728,11 +728,11 @@
 			]
 		},
 		"contracts/ERC721Holdable.sol": {
-			"keccak256": "0xf5b14ce3eb159d47d28d12471cbd85c3da83bf158027275f52530504b428e063",
+			"keccak256": "0xf30145cf831c7e1153c8a70f3e1963f9ede80768ec8f6bbe52f3bc7cd783a674",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://971bbf3ff6970502be6ec60c15f98cee2ec1680dd4d46b8b581c1d49d90de248",
-				"dweb:/ipfs/QmQcg9a6HBXHVyAkLsutVbDFYYkdyWtJnH1MPTWpZFER4E"
+				"bzz-raw://5fe95579e4f62ba3dd844a586cf5fe8dff0d0b19d6512ad09d74b0458dd49990",
+				"dweb:/ipfs/QmbsEfTVmDATj4RpAcKtzK3jxbm77imGUosNxhUzKHpkqD"
 			]
 		}
 	},

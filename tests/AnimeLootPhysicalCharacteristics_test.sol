@@ -19,35 +19,33 @@ contract testSuite {
     AnimeLoot al;
     AnimeLootPhysicalCharacteristics alpc;
 
-    address acc0;
-    address acc1;
-    address acc2;
+    // address acc0;
+    // address acc1;
+    // address acc2;
     
     /// 'beforeAll' runs before all other tests
     /// More special functions are: 'beforeEach', 'beforeAll', 'afterEach' & 'afterAll'
     function beforeAll() public {
         // <instantiate contract>
-        acc0 = TestsAccounts.getAccount(0); 
-        acc1 = TestsAccounts.getAccount(1);
-        acc2 = TestsAccounts.getAccount(2);
+        // acc0 = TestsAccounts.getAccount(0); 
+        // acc1 = TestsAccounts.getAccount(1);
+        // acc2 = TestsAccounts.getAccount(2);
+        al = new AnimeLoot();
+        alpc = new AnimeLootPhysicalCharacteristics(address(al));
     }
     
     function beforeEach() public {
-        al = new AnimeLoot();
-        // alpc = new AnimeLootPhysicalCharacteristics(address(al));
-        alpc = new AnimeLootPhysicalCharacteristics();
-        Assert.equal(uint(1), uint(1), "1 should be equal to 1");
     }
     
     function checkALPCTargetAddress() public {
-        // address targetAddress = alpc.getTargetContract();
-        // Assert.equal(targetAddress, address(al), "targetAddress should keep");
+        address targetAddress = alpc.getTargetContract();
+        Assert.equal(targetAddress, address(al), "targetAddress should keep");
     }
-    
-    function checkCanNotClaimNotTargetTokenIdClaimed() public {
-        
-        try alpc.claim(1, {acc0}) {
-            // Assert.ok(false, 'method execution should fail');
+
+    function checkCanNotClaimZero() public {
+
+        try alpc.claim(0) {
+            Assert.ok(false, 'method execution should fail');
         } catch Error(string memory reason) {
             // Compare failure reason, check if it is as expected
             Assert.equal(reason, 'ERC721: owner query for nonexistent token', 'failed with unexpected reason');
@@ -56,13 +54,12 @@ contract testSuite {
         }
     }
     
-    function checkCanClaimTargetTokenIdHolder() public {
+    function checkCanClaimTargetTokenIdHolder1() public {
 
-        al.claim(2);
+        al.claim(1);
 
-        try alpc.claim(2) {
-            // Assert.ok(true, 'method execution should success');
-            // should do nothing ?
+        try alpc.claim(1) {
+            Assert.ok(true, 'holder can claim');
         } catch Error(string memory reason) {
             // Compare failure reason, check if it is as expected
             Assert.ok(false, reason);
@@ -70,17 +67,16 @@ contract testSuite {
             Assert.ok(false, 'failed unexpected');
         }
     }
+    
+    function checkCanClaimTargetTokenIdHolder7999() public {
 
-    function checkCanNotClaimNotTargetTokenIdHolder() public {
+        al.claim(7999);
 
-        al.claim(1);
-
-        // TODO change msg.sender
-        try alpc.claim(1) {
-            Assert.ok(false, 'method execution should fail');
+        try alpc.claim(7999) {
+            Assert.ok(true, 'holder can claim');
         } catch Error(string memory reason) {
             // Compare failure reason, check if it is as expected
-            Assert.equal(reason, 'ERC721: owner query for nonexistent token', 'failed with unexpected reason');
+            Assert.ok(false, 'throw error');
         } catch (bytes memory /*lowLevelData*/) {
             Assert.ok(false, 'failed unexpected');
         }

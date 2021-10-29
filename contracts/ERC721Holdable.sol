@@ -27,7 +27,7 @@ abstract contract ERC721Holdable is ERC721Enumerable, Ownable, ReentrancyGuard {
     /**
      * @dev Initializes the contract setting.
      */
-    constructor(address targetContractAddress_) {
+    constructor(string memory name_, string memory symbol_, address targetContractAddress_) ERC721(name_, symbol_) {
         _targetContract = IERC721Enumerable(targetContractAddress_);
     }
 
