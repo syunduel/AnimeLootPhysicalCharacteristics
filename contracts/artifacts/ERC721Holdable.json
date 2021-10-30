@@ -58,6 +58,7 @@
 			"getApproved(uint256)": "081812fc",
 			"getTargetContract()": "7a8639ed",
 			"isApprovedForAll(address,address)": "e985e9c5",
+			"mintPrice()": "6817c76c",
 			"name()": "06fdde03",
 			"owner()": "8da5cb5b",
 			"ownerOf(uint256)": "6352211e",
@@ -72,7 +73,8 @@
 			"tokenURI(uint256)": "c87b56dd",
 			"totalSupply()": "18160ddd",
 			"transferFrom(address,address,uint256)": "23b872dd",
-			"transferOwnership(address)": "f2fde38b"
+			"transferOwnership(address)": "f2fde38b",
+			"withdraw(address,uint256)": "f3fef3a3"
 		}
 	},
 	"abi": [
@@ -262,14 +264,14 @@
 			],
 			"name": "claim",
 			"outputs": [],
-			"stateMutability": "nonpayable",
+			"stateMutability": "payable",
 			"type": "function"
 		},
 		{
 			"inputs": [],
 			"name": "claimAll",
 			"outputs": [],
-			"stateMutability": "nonpayable",
+			"stateMutability": "payable",
 			"type": "function"
 		},
 		{
@@ -323,6 +325,19 @@
 					"internalType": "bool",
 					"name": "",
 					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "mintPrice",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
 				}
 			],
 			"stateMutability": "view",
@@ -588,6 +603,24 @@
 				}
 			],
 			"name": "transferOwnership",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "withdraw",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"

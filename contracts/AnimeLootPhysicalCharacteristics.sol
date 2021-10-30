@@ -193,13 +193,14 @@ contract AnimeLootPhysicalCharacteristics is ERC721Holdable {
         return output;
     }
 
-    function claim(uint256 tokenId) public override nonReentrant onlyHolder(tokenId) {
+    function claim(uint256 tokenId) public override nonReentrant onlyHolder(tokenId) payable {
         require(tokenId > 0 && tokenId < 8001, "Token ID invalid. out of range");
         require(!_exists(tokenId), "Token ID invalid. Already claimed");
+        require(ERC721Holdable.mintPrice <= msg.value, "Value sent is not correct");
         _safeMint(_msgSender(), tokenId);
     }
     
-    function ownerClaim(uint256 tokenId) public nonReentrant onlyOwner {
+    function ownerClaim(uint256 tokenId) public nonReentrant onlyOwner payable {
         require(tokenId > 8000 && tokenId < 8334, "Token ID invalid");
         _safeMint(owner(), tokenId);
     }
@@ -226,6 +227,6 @@ contract AnimeLootPhysicalCharacteristics is ERC721Holdable {
         return string(buffer);
     }
     
-    constructor(address targetContract_) ERC721Holdable("AnimeLootPhysicalCharacteristics", "AnimeLootPC", targetContract_) {}
+    constructor(address targetContract_) ERC721Holdable("ReplicaAnimeLootPhysicalCharacteristics", "ReplicaAnimeLootPC", targetContract_) {}
 
 }

@@ -22,6 +22,8 @@ import "@openzeppelin/contracts/utils/Context.sol";
 abstract contract ERC721Holdable is ERC721Enumerable, Ownable, ReentrancyGuard {
     IERC721Enumerable public _targetContract;
 
+    uint256 public constant mintPrice = 10000000000000000;
+
     event TargetContractTransferred(address indexed previousContract, address indexed newContract);
 
     /**
@@ -49,12 +51,12 @@ abstract contract ERC721Holdable is ERC721Enumerable, Ownable, ReentrancyGuard {
     /**
      * @dev claim. should be only holder. you should override and add/modify require.
      */
-    function claim(uint256 tokenId) public virtual;
+    function claim(uint256 tokenId) public virtual payable;
 
     /**
      * @dev claim all _msgSender can claim. Throws if there is no tokenId that can be claimed.
      */
-    function claimAll() public virtual {
+    function claimAll() public virtual payable {
 
         uint256 count = _targetContract.balanceOf(_msgSender());
         require(count > 0, "Holdable: There is no tokenid that can be claimed");
@@ -69,6 +71,12 @@ abstract contract ERC721Holdable is ERC721Enumerable, Ownable, ReentrancyGuard {
         }
 
         require(claimed > 0, "Holdable: There is no tokenid that can be claimed");
+        require(mintPrice * claimed <= msg.value, "Value sent is not correct");
+    }
+    
+    function withdraw(address to, uint256 amount) public nonReentrant onlyOwner {
+        require(amount <= address(this).balance, "Amount too high");
+        payable(to).transfer(amount);
     }
 
     /**

@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.9+commit.e5eed63a"
+		"version": "0.8.7+commit.e28d00a7"
 	},
 	"language": "Solidity",
 	"output": {
@@ -191,14 +191,14 @@
 				],
 				"name": "claim",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
 				"inputs": [],
 				"name": "claimAll",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -252,6 +252,19 @@
 						"internalType": "bool",
 						"name": "",
 						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "mintPrice",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -520,6 +533,24 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -618,7 +649,7 @@
 		},
 		"optimizer": {
 			"enabled": true,
-			"runs": 1000
+			"runs": 2000
 		},
 		"remappings": []
 	},
@@ -728,11 +759,11 @@
 			]
 		},
 		"contracts/ERC721Holdable.sol": {
-			"keccak256": "0xf30145cf831c7e1153c8a70f3e1963f9ede80768ec8f6bbe52f3bc7cd783a674",
+			"keccak256": "0x205d6b9cf2ae4be144d71186c067e9be54ea602171eb11647ccf88316faaa78c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5fe95579e4f62ba3dd844a586cf5fe8dff0d0b19d6512ad09d74b0458dd49990",
-				"dweb:/ipfs/QmbsEfTVmDATj4RpAcKtzK3jxbm77imGUosNxhUzKHpkqD"
+				"bzz-raw://81e3abfc738d8fc4d20bba39c0d7469612e429ca893737aace417655908f2817",
+				"dweb:/ipfs/QmPopqTHum8eaqXof8x48eckAGm81dnMYxB3BfrxrJLg1h"
 			]
 		}
 	},
