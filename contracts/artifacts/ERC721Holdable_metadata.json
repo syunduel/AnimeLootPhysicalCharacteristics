@@ -649,7 +649,7 @@
 		},
 		"optimizer": {
 			"enabled": true,
-			"runs": 2000
+			"runs": 1000
 		},
 		"remappings": []
 	},
@@ -759,11 +759,11 @@
 			]
 		},
 		"contracts/ERC721Holdable.sol": {
-			"keccak256": "0x205d6b9cf2ae4be144d71186c067e9be54ea602171eb11647ccf88316faaa78c",
+			"keccak256": "0x4ca2b1ff209c5a45131630b199f694a1df83598ba9580d0e54e36b454410e415",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://81e3abfc738d8fc4d20bba39c0d7469612e429ca893737aace417655908f2817",
-				"dweb:/ipfs/QmPopqTHum8eaqXof8x48eckAGm81dnMYxB3BfrxrJLg1h"
+				"bzz-raw://215762c5377310699b272075c6e906e1db322aedf7bb8ecb6a820280b1e93fba",
+				"dweb:/ipfs/QmbNr5ppwByUn78zagxpRorDQZznfBzuHYh71akYQrLaHX"
 			]
 		}
 	},
