@@ -551,6 +551,19 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "withdrawAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -759,11 +772,11 @@
 			]
 		},
 		"contracts/ERC721Holdable.sol": {
-			"keccak256": "0x4ca2b1ff209c5a45131630b199f694a1df83598ba9580d0e54e36b454410e415",
+			"keccak256": "0xa0394512b293a7b8b2bbe8b9004a3068f50d38ad8bb6b26278964c44431d1d75",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://215762c5377310699b272075c6e906e1db322aedf7bb8ecb6a820280b1e93fba",
-				"dweb:/ipfs/QmbNr5ppwByUn78zagxpRorDQZznfBzuHYh71akYQrLaHX"
+				"bzz-raw://1df034da1eb4ff69782745ccbfb271e43398fb5ef4b3200f84c12df459079a93",
+				"dweb:/ipfs/QmSn2L1AHVqvptKydStKZbZ3LF1AzvwdMU87GrEsmrADyZ"
 			]
 		}
 	},

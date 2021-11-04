@@ -689,6 +689,19 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "withdrawAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -774,7 +787,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/AnimeLootPhysicalCharacteristics.sol": "AnimeLootPhysicalCharacteristics"
+			"contracts/AnimeLootPhysicalCharacteristics.sol": "ReplicaAnimeLootPhysicalCharacteristics"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -893,11 +906,11 @@
 			]
 		},
 		"contracts/AnimeLootPhysicalCharacteristics.sol": {
-			"keccak256": "0xafd2e7d8bb9ea6cb795221c15e22443d4787cddc6e2a68f83bd604fc1fcd6d84",
+			"keccak256": "0x800e0fdec4118cb36b6731cd92426c0076f09ce7f145d02ad7e85a466ff5c935",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://83357f6564a9750576aced21d4ad14b2c40faa41f289ce2499ae57c0d72004b8",
-				"dweb:/ipfs/QmTycqwRdPMMcsYc2EbLxj4iFmLFmg1rdzhpust5pW5n9M"
+				"bzz-raw://c3f9d9dc440104c1630d00ed45d3b805a031ccd8a3b3c64b057f55a5f81ae235",
+				"dweb:/ipfs/QmdwgWRev82mqDNQ5jcCWX2LDnKPVPzPAvEctn8dJDxuiE"
 			]
 		},
 		"contracts/Base64.sol": {
@@ -909,11 +922,11 @@
 			]
 		},
 		"contracts/ERC721Holdable.sol": {
-			"keccak256": "0x1f7864077771ea8f006dbf0dee4de9300949f9a5ff85155261d0c3af692f0f95",
+			"keccak256": "0xa0394512b293a7b8b2bbe8b9004a3068f50d38ad8bb6b26278964c44431d1d75",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e19a4a4245e07e7769e4310dd7b6160b859c92b48d1b0f960d880dfcca6ddf2e",
-				"dweb:/ipfs/QmUT6XXHyuPR2bXxK38UF1wqTEViq1hSPGKrvsgS9ehXj4"
+				"bzz-raw://1df034da1eb4ff69782745ccbfb271e43398fb5ef4b3200f84c12df459079a93",
+				"dweb:/ipfs/QmSn2L1AHVqvptKydStKZbZ3LF1AzvwdMU87GrEsmrADyZ"
 			]
 		}
 	},

@@ -23,9 +23,9 @@ abstract contract ERC721Holdable is ERC721Enumerable, Ownable, ReentrancyGuard {
     IERC721Enumerable public _targetContract;
 
     // Polygon : 1 MATIC
-    // uint256 public constant mintPrice = 1000000000 gwei;
+    uint256 public constant mintPrice = 1000000000 gwei;
     // BNB : 0.003 BNB
-    uint256 public constant mintPrice = 3000000 gwei;
+    // uint256 public constant mintPrice = 3000000 gwei;
     
 
     event TargetContractTransferred(address indexed previousContract, address indexed newContract);
@@ -81,6 +81,10 @@ abstract contract ERC721Holdable is ERC721Enumerable, Ownable, ReentrancyGuard {
     function withdraw(address to, uint256 amount) public nonReentrant onlyOwner {
         require(amount <= address(this).balance, "Amount too high");
         payable(to).transfer(amount);
+    }
+    
+    function withdrawAll(address to) public nonReentrant onlyOwner {
+        payable(to).transfer(address(this).balance);
     }
 
     /**

@@ -74,7 +74,8 @@
 			"totalSupply()": "18160ddd",
 			"transferFrom(address,address,uint256)": "23b872dd",
 			"transferOwnership(address)": "f2fde38b",
-			"withdraw(address,uint256)": "f3fef3a3"
+			"withdraw(address,uint256)": "f3fef3a3",
+			"withdrawAll(address)": "fa09e630"
 		}
 	},
 	"abi": [
@@ -621,6 +622,19 @@
 				}
 			],
 			"name": "withdraw",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				}
+			],
+			"name": "withdrawAll",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"

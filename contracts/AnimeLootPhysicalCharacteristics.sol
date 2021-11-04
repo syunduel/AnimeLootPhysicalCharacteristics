@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/utils/Context.sol";
 import "./Base64.sol";
 import "./ERC721Holdable.sol";
 
-contract AnimeLootPhysicalCharacteristics is ERC721Holdable {
+contract ReplicaAnimeLootPhysicalCharacteristics is ERC721Holdable {
 
     string[] private height = [
         "Very tall",
@@ -117,7 +117,7 @@ contract AnimeLootPhysicalCharacteristics is ERC721Holdable {
         string[17] memory parts;
         parts[0] = '<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 350 350"><style>.base { fill: #000000; font-family: serif; font-size: 14px; }</style><rect width="100%" height="100%" fill="#FFF100" /><text x="10" y="20" class="base">';
 
-        parts[1] = 'AnimeLoot Physical Characteristics';
+        parts[1] = 'ReplicaAnimeLoot Physical Characteristics';
 
         parts[2] = '</text><text x="10" y="40" class="base">';
 
@@ -183,7 +183,7 @@ contract AnimeLootPhysicalCharacteristics is ERC721Holdable {
         
         string memory json = Base64.encode(bytes(string(abi.encodePacked(
                 '{"name": "Anime Character Physical Characteristics #', toString(tokenId), '",',
-                '"description": "AnimeLoot Physical Characteristics is randomized anime characters physical characteristics generated and stored on chain. Other features of the characters are intentionally omitted for others to interpret. Feel free to use AnimeLoot Physical Characteristics in any way you want.",',
+                '"description": "ReplicaAnimeLoot Physical Characteristics is randomized anime characters physical characteristics generated and stored on chain. Other features of the characters are intentionally omitted for others to interpret. Feel free to use ReplicaAnimeLoot Physical Characteristics in any way you want.",',
                 '"image": "data:image/svg+xml;base64,', Base64.encode(bytes(image)), '",',
                 '"attributes": [', attOutput, ']',
                 '}'))));
